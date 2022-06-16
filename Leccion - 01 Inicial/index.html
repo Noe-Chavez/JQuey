@@ -15,7 +15,10 @@
 		
 		.textoVerde{
 			color: green;
-			font-weight: bold;
+		}
+
+		.textoNegritas {
+			font-weight: bold; 
 		}
 
 	</style>
@@ -41,10 +44,24 @@
 
 
 
-
 <script>
-	
-	$('ul').addClass('textoVerde');
+
+	// forma larga de esperar a que cargue el docuemnto para que JQuery se ejecute...
+	//jQuery(document).ready(function () {
+		// codigo JQUERY
+	//});
+
+	// forma reducida
+	//$(function (){
+		// codigo JQUERY
+	//});
+
+	// forma aun mas corta
+	$(() => {
+		// codigo JQUERY
+		$('ul').addClass('textoVerde');
+		$('li').addClass('textoNegritas');
+	});
 
 </script>
 
