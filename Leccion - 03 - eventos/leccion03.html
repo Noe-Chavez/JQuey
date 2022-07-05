@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Lección 03 - Eventos</title>
+
+	<!-- Importacion del jQuery -->
+	<script src="js/lib/jquery-2.1.4.min.js"></script>
+	
+	<!-- Importacion del Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<style>
+
+		.formPhotoNormal {
+			height: 200px;
+			width: 200px;
+		}
+
+		.formPhotoExtended {
+			height: 220px;
+			width: 220px;
+		}
+
+	</style>
+
+
+</head>
+<body>
+
+
+<div class="container">
+	
+	<h1>Lección 03: Eventos</h1>
+	<hr>
+
+	<a id="urlFirefox" href="https://www.mozilla.org/es-ES/">la página de inicio de Mozilla</a>.
+	<img id="image" src="./img/profesor.jpg" class="formPhotoNormal">
+	
+
+</div>
+
+
+<script>
+
+	let image = $('#image');
+
+	/*image.on('mouseenter', () => {
+		console.log('Entro el mause a la imagen');
+		image.removeClass('formPhotoNormal').addClass('formPhotoExtended');
+	});*/
+
+	/*$('#image').on('mouseenter', function () {
+		console.log('Entro el mause a la imagen');
+		$(this).removeClass('formPhotoNormal').addClass('formPhotoExtended');
+	});*/
+
+	image.on('mouseenter', function () { // con arrow function no funciona el this.
+		console.log('Entro el mause a la imagen');
+		$(this).removeClass('formPhotoNormal').addClass('formPhotoExtended');
+	})
+
+	image.on('mouseleave', () => {
+		console.log('Salio el mause a la imagen');
+		image.removeClass('formPhotoExtended').addClass('formPhotoNormal');
+	});
+
+	// no funciona y no veo por que.
+	/*$("#urlFirefox").on('click', (e) => {
+		console.log('hiciste click');
+		let link = $(this).attr('href'); // this hace referencia al elemento referenciado con jquery, es decir: $("#urlFirefox").
+		console.log(link);
+		window.location = link;
+	});*/
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
