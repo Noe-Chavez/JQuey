@@ -14,13 +14,33 @@
 	<!-- Estilo para esta pagina -->
 	<style>
 		
-		img{
+		img {
 			width: 200px;
 			height: 200px;
 		}
 	
-		hr{
+		hr {
 			margin-bottom: 60px;
+		}
+
+		.red {
+			color: red;
+		}
+
+		.blue {
+			color: blue;
+		}
+
+		.orangered {
+			color: orangered;
+		}
+
+		.yellow {
+			color: yellow;
+		}
+
+		.unknonw {
+			color: rgb(255, 160, 122);
 		}
 
 	</style>
@@ -48,7 +68,7 @@
 
 		<div class="col-sm-3">
 			<ul>
-				<li>Matemática</li>
+				<li>Matemáticas</li>
 				<li>Programación</li>
 				<li>Análisis</li>
 				<li>Física</li>
@@ -77,6 +97,33 @@
 		.attr("src", `img/${profe}`) 		// cabia el atributo src
 		.removeClass('img-circle')			// remieve la clase actual
 		.addClass('img-thumbnail');			// agrega una nueva clase
+
+	// vamos selecionar elementos de la lista.
+	/*
+	$('ul li').eq(0).css('color', 'red');
+	$('ul li').eq(1).css('color', 'blue').html('<i>Programación</i>');
+	$('ul li').eq(2).css('color', 'orange');
+	$('ul li').eq(3).css('color', 'yellow');
+	$('ul li').eq(4).css('color', 'rgb(255, 160, 122)');
+	*/
+
+	// forma I - en una sola instrcución.
+	/*$('ul li').eq(0).addClass("red").end();
+	$('ul li').eq(1).addClass('blue').html('<i>Programación</i>').end();
+	$('ul li').eq(2).addClass("orangered").end();
+	$('ul li').eq(3).addClass("yellow").end();
+	$('ul li').eq(4).addClass("unknonw").end();*/
+	// NOTA: end, regresa al selector original, si no se coloca, no cambia los colores, ya que jquery buscara un hijo 
+
+	// forma II - mediante referencia, multiples lineas.
+
+	let lista = $('ul li'); // guardando referencia de la lista.
+	//console.log(lista);
+	lista.eq(0).addClass("red");
+	lista.eq(1).addClass('blue').html('<i>Programación</i>');
+	lista.eq(2).addClass('orangered');
+	lista.eq(3).addClass('yellow');
+	lista.eq(4).addClass('unknonw');
 
 </script>
 
