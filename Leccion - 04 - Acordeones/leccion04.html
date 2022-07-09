@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Lección 04 - Acordeones</title>
+
+	<!-- Importacion del jQuery -->
+	<script src="js/lib/jquery-2.1.4.min.js"></script>
+	
+	<!-- Importacion del Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<style>
+
+	dl {
+		width: 400px;
+	}
+
+	dd {
+		margin: 0;
+		padding: 10px;
+	}
+
+	dt {
+		cursor: pointer;
+		font-size: 18px;
+		background-color: #e3e3e3;
+		border-bottom: 1px solid #c5c5c5;
+		border-top: 1px solid white;
+	}
+
+</style>
+
+<body>
+
+
+<div class="container">
+	<h1>Lección 04: Acordeones</h1>
+	<hr>
+	<div align="center">
+		<dl>
+			<dt>Titulo I</dt>
+			<dd>Contenido I</dd>
+			<dt>Titulo II</dt>
+			<dd>Contenido II</dd>
+			<dt>Titulo III</dt>
+			<dd>Contenido III</dd>
+			<dt>Titulo IV</dt>
+			<dd>Contenido IV</dd>
+			<dt>Titulo V</dt>
+			<dd>Contenido V</dd>
+		</dl>
+	</div>
+</div>
+
+<script>
+
+	(function () {
+
+		var dds = $('dd');
+		var dts = $('dt');
+		var tiempo = 200;// milisegundos
+
+		dds.hide();
+		dds.eq(0).show();
+
+		dts.on('mouseenter', function () {
+			dds.slideUp(tiempo);
+			// next busca el siguiente elemento del mismo nivel gerarquico a este (en este caso busca el dd)
+			$(this).next().slideDown(tiempo);// el this hace referencia sólo al que estoy pasando el mause por encima, si remplazamos por la variable dss muestra todos.
+		});
+
+	})(); // encapsulamos el código, para que variables o librarias externas no afecten a nuestro codigo.
+
+</script>
+
+</body>
+</html>
