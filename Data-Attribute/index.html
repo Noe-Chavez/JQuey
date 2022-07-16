@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Data-Attribute</title>
+
+	<!-- Importacion del jQuery -->
+	<script src="js/lib/jquery-2.1.4.min.js"></script>
+	
+	<!-- Importacion del Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+
+<div class="container text-center">
+	
+	<h1>Tema extra: <small>Data-Attribute</small></h1>
+	<hr>
+
+	<img src="/img/1.jpg" alt="soy el atributo alt" atributo_propio="Este es un atributo propio" data-alt="Este es nuestro alt propio">
+
+	<script>
+
+		$(document).ready(function () {
+			
+			// $imagen, no es necesario, pero se hace para indicar que se guarda un objeto del DOM
+			var $imagen = $("img");
+
+			console.log($imagen.attr("alt")); // obtenemos el valor del atributo alt
+			$imagen.attr("alt", "Nuevo valor a remplazar o asignar");// Se asigna un valor
+
+			/**
+			 * Cuando se tiene un atributo personalizado, no se recomienda utilizar como arriba,
+			 * ya que se puede confundir o mal interpretar con otros atributos, existentes, por lo que 
+			 * es CONVENIENTE UTILIZAR DATA-ATTRIBUTES...
+			 */
+			// Ejemplo: obtener o/y cambiar el valor de atributo_propio, podemos hace lo mostrado anteriormente
+			var valorAtributoPropio = $imagen.attr("atributo_propio");
+			console.log("valorAtributoPropio = " + valorAtributoPropio);	
+			$imagen.attr("atributo_propio", "Se ha modificado el valor del atributo propio");
+
+			// Lo anterior esta bien, pero que pasa si se llama igual a uno ya existenete en HTML.
+			// Ejemplo: queremos acceder al alt propio no al ya existente en HTML, como le hacemos, utilizando
+			// los data-attribute, en lugar de dejar solo alt en el codigo html, le agregamos data-
+			var altPersonalizado = $imagen.data("alt");
+			console.log("altPersonalizado = " + altPersonalizado);
+			$imagen.data("alt", "cambiamos el valor de nuestro alt propio y no de la etiqueta existente en HTML");
+			altPersonalizado = $imagen.data("alt");
+			console.log("altPersonalizado = " + altPersonalizado);
+
+			// lo podemos utilizar para agregar banderas o estados y no utilizar tanto las variable dinamicas.
+
+		});
+
+	</script>
+
+
+</div>
+
+
+
+
+
+
+</body>
+</html>
