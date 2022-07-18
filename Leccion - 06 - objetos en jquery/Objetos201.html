@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Objetos 201</title>
+
+	<!-- Importacion del jQuery -->
+	<script src="js/lib/jquery-2.1.4.min.js"></script>
+	
+	<!-- Importacion del Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+
+<div class="container text-center">
+	
+	<h1>Objetos 201: <small>Objetos en jQuery</small></h1>
+	<hr>
+
+</div>
+
+
+<script>
+
+	// Le dice a JQuery que cree una etiqueta input y le agrege los atrubutos marcados en el objeto anonimo
+	$('<input>', {
+		type: 'text',
+		class: 'form-control',
+		placeholder: 'ingrese su nombre'
+	}).appendTo('.container') 			// lo agerga hasta el final del contenedor
+	  .on('keypress', function(e) { 	// le asignamos la funcion que imprime el codigo ascci de cada tecla
+		console.log(e.keyCode);
+	  })
+	  .css({							// se agrega un estilo css, en el cual se especifican los elementos, mediante un objeto anonimo.
+		position: 'relative',
+		top: '200px'
+	  });
+
+</script>
+
+
+</body>
+</html>
